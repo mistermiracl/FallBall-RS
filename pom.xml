@@ -32,11 +32,16 @@
 			<version>${derby-client-version}</version>
 		</dependency>
 
+		<!-- WHEN USING GLASSFISH AS CONTAINER IT ALREADY INCLUDES ALL NEEDED JAX-RS AND JERSEY DEPENDENCIES 
+			 SINCE WE ARE USING GLASSFISH IT IS JERSEY, ALL JEE CONTAINERS NEED TO INCLUDE THIS IMPLEMENTATIONS
+			 JBOSS FOR EXAMPLE USES RESTEASY-->
+
 		<!-- https://mvnrepository.com/artifact/javax.ws.rs/javax.ws.rs-api -->
 		<dependency>
 			<groupId>javax.ws.rs</groupId>
 			<artifactId>javax.ws.rs-api</artifactId>
 			<version>${jax-rs-version}</version>
+			<scope>provided</scope>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.glassfish.jersey.containers/jersey-container-servlet -->
@@ -44,6 +49,7 @@
 			<groupId>org.glassfish.jersey.containers</groupId>
 			<artifactId>jersey-container-servlet</artifactId>
 			<version>${jersey-version}</version>
+			<scope>provided</scope>
 		</dependency>
 		
 		<!--InjectionManager factory not found exception is thrown if hk2 dependency is missing -->		
@@ -52,6 +58,7 @@
 	    	<groupId>org.glassfish.jersey.inject</groupId>
 	    	<artifactId>jersey-hk2</artifactId>
 	    	<version>${jersey-version}</version>
+	    	<scope>provided</scope>
 		</dependency>
 
 		<!-- dependency need for json serialization on JAXB annotated classes, well they should be annotated it works either way -->
@@ -60,10 +67,11 @@
     		<groupId>org.glassfish.jersey.media</groupId>
     		<artifactId>jersey-media-json-jackson</artifactId>
     		<version>${jersey-version}</version>
+    		<scope>provided</scope>
 		</dependency>
 
 
-		<!-- COMMON JERSET DEPENDENCIES, NOT NEEDED FOR THIS PROJECT -->
+		<!-- COMMON JERSEY DEPENDENCIES, NOT NEEDED FOR THIS PROJECT -->
 		
 		<!-- https://mvnrepository.com/artifact/org.glassfish.jersey.containers/jersey-container-servlet-core -->
 		<!--<dependency>

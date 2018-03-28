@@ -17,7 +17,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 class PlayerDaoImpl implements PlayerDao{
-
+	
+	public PlayerDaoImpl() {
+	}
+	
     @Override
     public boolean create(PlayerData.Player toInsert) {
         String sql = "INSERT INTO Player(PlayerName, PlayerScore, Level) VALUES (?, ?, ?)";

@@ -8,7 +8,10 @@ package com.fallballrs.service;
 import com.fallballrs.dao.DeviceInfoDao;
 import com.fallballrs.dao.PlayerDao;
 import com.fallballrs.dao.impl.DaoFactory;
-import org.glassfish.jersey.internal.inject.AbstractBinder;
+
+import org.glassfish.hk2.utilities.binding.AbstractBinder;
+import org.glassfish.jersey.jackson.JacksonFeature;
+//import org.glassfish.jersey.internal.inject.AbstractBinder;
 import org.glassfish.jersey.server.ResourceConfig;
 
 
@@ -20,7 +23,8 @@ public class ApplicationConfig extends ResourceConfig {//EXTEND FROM ResourceCon
         
         //LOOKS FOR RESOURCES(ENDPOINTS) ON SPECIFIED PACKAGES
         packages(this.getClass().getPackage().getName());
-        
+        //GLASSFISH SERVER INCLUDES MOXY AND JACKSON AS JSONBODYWRITERS, SINCE GLASSFISH HAS SERIOUS BUGS IN THIS VERSION MOXY(DEFAULT) DOES NOT WORK SO WE NEED TO MANUALLY SETUP JACKSON
+        register(JacksonFeature.class);
         //MANUALLY REGISTERS RESOURCES IN THIS CASE A BINDER FOR DI
         register(new AbstractBinder() {
             @Override

@@ -15,7 +15,7 @@ public class PlayerData {
     //USE NESTED CLASSES SINCE JAVA DOES NOT SUPPORT STRUCTS
 	
     //TBH I'M NOT SURE IF THE JAXB ANNOTATION IS NEED AFTER ADDING THE JSON-JACKSON DEPENDENCY IN THE POM.XML
-	//@XmlRootElement
+	@XmlRootElement
 	public static class Player{
         public int playerId;
         public String playerName;

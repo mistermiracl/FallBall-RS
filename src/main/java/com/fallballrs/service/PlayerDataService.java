@@ -29,7 +29,7 @@ import javax.ws.rs.core.Response.Status;
 
 @Path("/player")//playerDataService
 public class PlayerDataService {
-
+	
     @Context
     private UriInfo context;
     
@@ -45,6 +45,10 @@ public class PlayerDataService {
     playerDao = DaoFactory.getInstance().getPlayerDao();
     }*/
 
+    
+    /**No arg ctor*/
+    public PlayerDataService() {
+    }
     
     @GET
     @Produces(MediaType.APPLICATION_JSON)
